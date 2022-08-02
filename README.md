@@ -1,5 +1,5 @@
 # r-package-ideas
-Things that should be, but aren't.
+Things that should be, but aRen't (yet).
 
 # `notly`
 
