@@ -1,13 +1,15 @@
 # r-package-ideas
 Things that should be, but aRen't (yet).
 
-# `notly`
+# [`notly`](https://github.com/gdmcdonald/notly)
 
-Notly would have a single function, `notly::notly()` which is basically the inverse function to `plotly::ggplotly()`, i.e. it turns a plotly plot back into a ggplot object.
+~~Notly would have a single function, `notly::notly()` which is basically the inverse function to `plotly::ggplotly()`, i.e. it turns a plotly plot back into a ggplot object.~~
 
-This way if you've saved an interactive plotly object you can recover the ggplot from it!
+~~This way if you've saved an interactive plotly object you can recover the ggplot from it!~~
 
-Probably this would be hard to do unless - you overwrote the ggplotly function with `notly::ggplotly()` to also save the ggplot object. That way it can simply be extracted and not reverse engineered.
+~~Probably this would be hard to do unless - you overwrote the ggplotly function with `notly::ggplotly()` to also save the ggplot object. That way it can simply be extracted and not reverse engineered.~~
+
+edit: [done!](https://github.com/gdmcdonald/notly)
 
 # `git-shame`
 
