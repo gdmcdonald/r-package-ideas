@@ -26,3 +26,41 @@ Further improvements could be to try to match the statistical distribution of th
 # `namer`
 
 Generates good names for R packages and functions by finding memorable short words that aren't taken already on CRAN or as functions in popular packages, using thesaurus/dictionary or adding in the letter R in the package name the way people seem to do.
+
+# `jsmodel`
+
+Exports a model (e.g. a regression or classification from tidymodels) into a JavaScript widget so that you can put it on a website and predict live in a user's browser. 
+
+How to implement this? Maybe to start it's easiest to train the model in tidymodels using a tensorflow engine, then convert that to js? But that doesn't sound very lightweight.
+
+# `once`
+
+Wraps an expensive operation so that output is saved to disk. If the file exists, it won't run again, it will just load the saved version. 
+
+Eg. instead of 
+
+```{r}
+model_file <- "saved_models/my_trained_models.Rds"
+
+if (file.exists(model_file)){
+  my_trained_models <- readRDS(file = model_file)
+} else {
+  # Train all the models 
+  my_trained_models <- train_models_function(...)
+  saveRDS(my_trained_models, file = model_file)
+}
+```
+
+it would look like
+
+```{r}
+  my_trained_models <- 
+    train_models_function(...) %>%
+    once(model_file = "saved_models/my_trained_models.Rds")
+```
+
+# `corgui`
+
+It's an interactive correlation plot (correlation /mutual information / ...), that you can click on a square (any combination of parameters) to get a zoom in which is a scatterplot with a linear trend / cubic spline / rf regression. And yes, it's pronounced "Corgi".
+
+
