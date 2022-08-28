@@ -10,6 +10,7 @@ Things that should be, but aRen't (yet).
 ~~Probably this would be hard to do unless - you overwrote the ggplotly function with `notly::ggplotly()` to also save the ggplot object. That way it can simply be extracted and not reverse engineered.~~
 
 edit: [done!](https://github.com/gdmcdonald/notly)
+<img width="210" alt="Notly" src="https://user-images.githubusercontent.com/20785842/187099756-63951a1a-45d4-4903-8acb-b86c54764564.png">
 
 # `git-shame`
 
