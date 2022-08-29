@@ -9,7 +9,7 @@ Things that should be, but aRen't (yet).
 
 ~~Probably this would be hard to do unless - you overwrote the ggplotly function with `notly::ggplotly()` to also save the ggplot object. That way it can simply be extracted and not reverse engineered.~~
 
-edit: [done!](https://github.com/gdmcdonald/notly)
+edit: [done! Try it out now!](https://github.com/gdmcdonald/notly)
 
 <img width="210" alt="Notly" src="https://user-images.githubusercontent.com/20785842/187099756-63951a1a-45d4-4903-8acb-b86c54764564.png">
 
@@ -39,11 +39,11 @@ Exports a model (e.g. a regression or classification from tidymodels) into a Jav
 
 How to implement this? Maybe to start it's easiest to train the model in tidymodels using a tensorflow engine, then convert that to js? But that doesn't sound very lightweight.
 
-# `once`
+# [`once`](https://github.com/gdmcdonald/once)
 
-Wraps an expensive operation so that output is saved to disk. If the file exists, it won't run again, it will just load the saved version. 
+~~Wraps an expensive operation so that output is saved to disk. If the file exists, it won't run again, it will just load the saved version.~~
 
-Eg. instead of 
+~~Eg. instead of~~
 
 ```{r}
 model_file <- "saved_models/my_trained_models.Rds"
@@ -57,7 +57,7 @@ if (file.exists(model_file)){
 }
 ```
 
-it would look like
+~~it would look like~~
 
 ```{r}
   my_trained_models <- 
@@ -65,35 +65,9 @@ it would look like
     once(model_file = "saved_models/my_trained_models.Rds")
 ```
 
-So I guess the code is
-```{r}
-#' Once
-#'
-#' @param expr The expensive expression to evaluate
-#' @param file_path File path for saving the output object as an Rds file
-#'
-#' @return the results of expr
-#' @export
-#'
-#' @examples
-#' my_out <-
-#'   runif(1000000) %>% # some expensive operation
-#'   once(file_path = "saved_random_numbers.Rds") # only do it once, save output to this file.
-once <- function(expr,file_path){
+edit: [done! Try it out now!](https://github.com/gdmcdonald/once)
 
-  if (file.exists(file_path)){
-    output <- readRDS(file = file_path)
-  } else {
-    output <-
-      eval(expr = expr)
-
-    saveRDS(output, file = file_path)
-
-  }
-
-  return(output)
-}
-```
+<img width="260" alt="once" src="https://user-images.githubusercontent.com/20785842/187125162-114823a1-cf43-41de-a2c5-c168fd286979.png">
 
 # `corgui`
 
